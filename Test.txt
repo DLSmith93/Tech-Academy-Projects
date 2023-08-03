@@ -1,1 +1,2 @@
 This is my first file for my remote repository.
+This is another line of text in my first file.
