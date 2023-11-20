@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="./main.js" type="text/javascript" defer></script>
     <title>The Great Beyond</title>
 </head>
 <body class="bGround">
@@ -31,6 +32,7 @@
     </div>
     <!-- END HOME-->
 
+    <!-- images used to opejn the lightbox-->
     <!-- GALLERY-->
     <section class="container1">
         <div class="container" id="gallery">
@@ -39,7 +41,7 @@
             </div>
         
             <!-- PHOTO CONTAINER 1-->
-            <div class="display1">
+            <div class="display1 hover-shadow" onclick="openModal(); currentSlide(1)">
                 <div>
                     <img src="./images/thumb/thumbnail_1.jpeg" alt="">
                     <div>
@@ -51,7 +53,7 @@
             <!-- END PHOTO CONTAINER 1-->
 
             <!-- PHOTO CONTAINER 2-->
-            <div class="display1">
+            <div class="display1 hover-shadow" onclick="openModal(); currentSlide(2)">
                 <div>
                     <img src="./images/thumb/thumbnail_2.jpg" alt="">
                     <div>
@@ -63,7 +65,7 @@
             <!-- END PHOTO CONTAINER 2-->
 
             <!-- PHOTO CONTAINER 3-->
-            <div class="display1">
+            <div class="display1 hover-shadow" onclick="openModal(); currentSlide(3)">
                 <div>
                     <img src="./images/thumb/thumbnail_3.jpg" alt="">
                     <div>
@@ -75,7 +77,7 @@
             <!-- END PHOTO CONTAINER 3-->
 
             <!-- PHOTO CONTAINER 4-->
-            <div class="display1">
+            <div class="display1 hover-slides" onclick="openModal(); currentSlide(4)">
                 <div>
                     <img src="./images/thumb/thumbnail_4.jpeg" alt="">
                     <div>
@@ -87,7 +89,7 @@
             <!-- END PHOTO CONTAINER 4-->
 
             <!-- PHOTO CONTAINER 5-->
-            <div class="display1">
+            <div class="display1 hover-shadow" onclick="openModal(); currentSlide(5)">
                 <div>
                     <img src="./images/thumb/thumbnail_5.jpeg" alt="">
                     <div>
@@ -99,19 +101,20 @@
             <!-- END PHOTO CONTAINER 5-->
 
             <!-- PHOTO CONTAINER 6-->
-            <div class="display1">
+            <div class="display1 hover-shadow" onclick="openModal(); currentSlide(6)">
                 <div>
                     <img src="./images/thumb/thumbnail_6.jpg" alt="">
                     <div>
                         <h3>NEPTUNE</h3>
                         <p>some sort of text</p>
                     </div>
+
                 </div>
             </div>
             <!-- END PHOTO CONTAINER 6-->
 
             <!-- PHOTO CONTAINER 7-->
-            <div class="display1">
+            <div class="display1 hover-shadow" onclick="openModal(); currentSlide(7)">
                 <div>
                     <img src="./images/thumb/thumbnail_7.jpg" alt="">
                     <div>
@@ -123,7 +126,7 @@
             <!-- END PHOTO CONTAINER 7-->
 
             <!-- PHOTO CONTAINER 8-->
-            <div class="display1">
+            <div class="display1 hover-shadow" onclick="openModal(); currentSlide(8)">
                 <div>
                     <img src="./images/thumb/thumbnail_8.jpg" alt="">
                     <div>
@@ -134,8 +137,9 @@
             </div>
             <!-- END PHOTO CONTAINER 8-->
 
+
             <!-- PHOTO CONTAINER 9-->
-            <div class="display1">
+            <div class="display1 hover-Shadow" onclick="openModal(); currentSlide(9)">
                 <div>
                     <img src="./images/thumb/thumbnail_9.jpg" alt="">
                     <div>
@@ -149,6 +153,106 @@
         </div>
     </section>
     <!-- END GALLERY-->
+
+    <!-- The Modal/Lightbox-->
+    <div class="modal center" id="myModal">
+        <span class="close cursor" onclick="closeModal()">&times</span>
+        <div>
+
+            <!-- Photo #1 -->
+            <div class="mySlides">
+                <div class="numbertext">1/9</div>
+                <img src="./images/thumb/thumbnail_1.jpeg" alt="" style="width: 25%; height: 25%;">
+            </div>
+            <!-- Photo #2 -->
+            <div class="mySlides">
+                <div class="numbertext">2/9</div>
+                <img src="./images/thumb/thumbnail_2.jpg" alt="" style="width: 50%; height: 50%;">
+            </div>
+            <!-- Photo #3 -->
+            <div class="mySlides">
+                <div class="numbertext">3/9</div>
+                <img src="./images/thumb/thumbnail_3.jpg" alt="" style="width: 50%; height: 50%;">
+            </div>
+            <!-- Photo #4 -->
+            <div class="mySlides">
+                <div class="numbertext">4/9</div>
+                <img src="./images/thumb/thumbnail_4.jpeg" alt="" style="width: 50%; height: 50%;">
+            </div>
+            <!-- Photo #5 -->
+            <div class="mySlides">
+                <div class="numbertext">5/9</div>
+                <img src="./images/thumb/thumbnail_5.jpeg" alt="" style="width: 50%; height: 50%;">
+            </div>
+            <!-- Photo #6 -->
+            <div class="mySlides">
+                <div class="numbertext">6/9</div>
+                <img src="./images/thumb/thumbnail_6.jpg" alt="" style="width: 50%; height: 50%;">
+            </div>
+            <!-- Photo #7 -->
+            <div class="mySlides">
+                <div class="numbertext">7/9</div>
+                <img src="./images/thumb/thumbnail_7.jpg" alt="" style="width: 50%; height: 50%;">
+            </div>
+            <!-- Photo #8 -->
+            <div class="mySlides">
+                <div class="numbertext">8/9</div>
+                <img src="./images/thumb/thumbnail_8.jpg" alt="" style="width: 50%; height: 50%;">
+            </div>
+            <!-- Photo #9 -->
+            <div class="mySlides">
+                <div class="numbertext">9/9</div>
+                <img src="./images/thumb/thumbnail_9.jpg" alt="" style="width: 50%; height: 50%;">
+            </div>
+
+            <!-- Next/Previous controls-->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <!-- Caption text -->
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+
+            <!-- Thumbnail image controls-->
+            <div class="column">
+                <img class="demo" src="./images/thumb/thumbnail_1.jpeg" onclick="currentSlide(1)" alt="" >
+            </div>
+
+            <div class="column">
+                <img class="demo" src="./images/thumb/thumbnail_2.jpg" onclick="currentSlide(2)" alt="" >
+            </div>
+
+            <div class="column">
+                <img class="demo" src="./images/thumb/thumbnail_3.jpg" onclick="currentSlide(3)" alt="" >
+            </div>
+
+            <div class="column">
+                <img class="demo" src="./images/thumb/thumbnail_4.jpeg" onclick="currentSlide(4)" alt="" >
+            </div>
+
+            <div class="column">
+                <img class="demo" src="./images/thumb/thumbnail_5.jpeg" onclick="currentSlide(5)" alt="" >
+            </div>
+
+            <div class="column">
+                <img class="demo" src="./images/thumb/thumbnail_6.jpg" onclick="currentSlide(6)" alt="" >
+            </div>
+
+            <div class="column">
+                <img class="demo" src="./images/thumb/thumbnail_7.jpg" onclick="currentSlide(7)" alt="" >
+            </div>
+
+            <div class="column">
+                <img class="demo" src="./images/thumb/thumbnail_8.jpg" onclick="currentSlide(8)" alt="" >
+            </div>
+
+            <div class="column">
+                <img class="demo" src="./images/thumb/thumbnail_9.jpg" onclick="currentSlide(9)" alt="" >
+            </div>
+        </div>
+
+    </div>
 
     <!-- VIDEO -->
     <div>
