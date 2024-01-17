@@ -18,10 +18,10 @@ time in the Tech Academy Python Bootcamp.
 
 -A Tic Tac Toe game that utilizes HTML, CSS, and javascript
 
-- A Django Project for a mock bank website where you can create accounts and add transactions to the accounts
+-A Django Project for a mock bank website where you can create accounts and add transactions to the accounts
 
-- A GUI phonebook app using tinker that can have contacts added, removed and edited
+-A GUI phonebook app using tinker that can have contacts added, removed and edited
 
-- A GUI student tracking app where you can add students, edit and remove them from the database
+-A GUI student tracking app where you can add students, edit and remove them from the database
 
--
+
