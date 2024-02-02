@@ -43,7 +43,7 @@ def ask_quit(self):
 
 # this creates the database
 def create_db(self):
-    conn = sqlite3.connect("python_phonebook/db_phonebook.db")
+    conn = sqlite3.connect("db_phonebook.db")
     
     with conn:
         cur = conn.cursor()
@@ -62,7 +62,7 @@ def create_db(self):
 # first dry run for adding a person to the phonebook
 def first_run(self):
     data = ("John", "Doe", "john Doe", "111-111-1111", "jdoe@mail.com")
-    conn = sqlite3.connect("python_phonebook/db_phonebook.db")
+    conn = sqlite3.connect("db_phonebook.db")
 
     with conn:
         cur = conn.cursor()
@@ -90,7 +90,7 @@ def onSelect(self, event):
     select = varList.curselection()[0]
     value = varList.get(select)
 
-    conn = sqlite3.connect("python_phonebook/db_phonebook.db")
+    conn = sqlite3.connect("db_phonebook.db")
     with conn:
         cur = conn.cursor()
         cur.execute("""SELECT col_fname, col_lname, col_phone, col_email FROM tbl_phonebook WHERE col_fullname = (?)""", [value])
@@ -124,7 +124,7 @@ def addToList(self):
     if not "@" or not "." in var_email: # will use this soon
         print("Incorrect email format!!!")
     if (len(var_fname) > 0) and (len(var_lname) > 0) and (len(var_phone) > 0) and(len(var_email) > 0): # enforce the user to provide both names
-        conn = sqlite3.connect('python_phonebook/db_phonebook.db')
+        conn = sqlite3.connect('db_phonebook.db')
         with conn:
             cursor = conn.cursor()
             # Check the database for existance of the fullname, if so we will alert user and disregard request
@@ -146,7 +146,7 @@ def addToList(self):
 
 def onDelete(self):
     var_select = self.lstList1.get(self.lstList1.curselection()) # Listbox's selected value
-    conn = sqlite3.connect('python_phonebook/db_phonebook.db')
+    conn = sqlite3.connect('db_phonebook.db')
     with conn:
         cur = conn.cursor()
         # check count to ensure that this is not the last record in
@@ -156,7 +156,7 @@ def onDelete(self):
         if count > 1:
             confirm = messagebox.askokcancel("Delete Confirmation", "All information associated with, ({}) \nwill be permenantly deleted from the database. \n\nProceed with the deletion request?".format(var_select))
             if confirm:
-                conn = sqlite3.connect('python_phonebook/db_phonebook.db')
+                conn = sqlite3.connect('db_phonebook.db')
                 with conn:
                     cursor = conn.cursor()
                     cursor.execute("""DELETE FROM tbl_phonebook WHERE col_fullname = '{}'""".format(var_select))
@@ -191,7 +191,7 @@ def onClear(self):
 def onRefresh(self):
     # Populate the listbox, coinciding with the database
     self.lstList1.delete(0,END)
-    conn = sqlite3.connect('python_phonebook/db_phonebook.db')
+    conn = sqlite3.connect('db_phonebook.db')
     with conn:
         cursor = conn.cursor()
         cursor.execute("""SELECT COUNT(*) FROM tbl_phonebook""")
@@ -218,7 +218,7 @@ def onUpdate(self):
     var_phone = self.txt_phone.get().strip() # normalize the data to maintain database integrity
     var_email = self.txt_email.get().strip()
     if (len(var_phone) > 0) and (len(var_email) > 0): # ensure that there is data present
-        conn = sqlite3.connect('python_phonebook/db_phonebook.db')
+        conn = sqlite3.connect('db_phonebook.db')
         with conn:
             cur = conn.cursor()
             # count records to see if the user's changes are already in
